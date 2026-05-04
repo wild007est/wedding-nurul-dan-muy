@@ -1,0 +1,944 @@
+/* ================= GLOBAL ================= */
+
+:root {
+    --gold: #d4af37;        /* gold utama */
+    --gold-soft: #e6c766;   /* gold terang (highlight) */
+    --gold-dark: #b8962e;   /* gold agak gelap */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    transition: all 0.5s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, rgba(80,0,0,0.75), #0b0b0b);
+}
+
+/* ================= WEDDING INTRO ================= */
+.bg-wedding {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 10%,
+            rgba(212,175,55,0.15),
+            transparent 40%),
+        radial-gradient(circle,
+            #1b0f0f,
+            rgba(80,0,0,0.75),
+            #1b0f0f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+}
+
+/* ================= CARD ================= */
+.wedding-card {
+    position: relative;
+    z-index: 1;
+
+    background: rgba(255, 248, 235, 0.12); /* sedikit lebih terang */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 20px;
+    padding: 28px 18px;
+
+    text-align: center;
+
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.7); /* shadow dalam & tegas */
+    max-width: 240px;   /* dari 284 → lebih kecil */
+    width: 88%;
+
+    animation: fadeUp 1s ease;
+}
+
+/* FRAME */
+.wedding-card::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    background: url('img/frames.png') center/contain no-repeat;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+/* ================= TEXT INTRO ================= */
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--gold-soft);
+    text-shadow: 
+        0 0 5px rgba(255, 215, 0, 0.6),
+        0 0 10px rgba(255, 215, 0, 0.4),
+        0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 9px;
+    color: var(--gold-soft);
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.desc {
+    font-size: 8px;
+    color: var(--gold-dark);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* ================= BUTTON ================= */
+.btn-wedding {
+    background: linear-gradient(45deg, #b8860b, #d4af37);
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 8px 10px;
+    border: none;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-wedding:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+/* ================= COUPLE IMAGE ================= */
+.couple-img {
+    width: 120px;
+    display: block;
+    margin: 8px auto;
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(80,0,0,0.75),
+        #1b0f0f
+    );
+
+    color: white;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: var(--gold-soft);
+}
+
+.hero-subtitle {
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #978c8c;
+}
+
+.hero-date {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #978c8c;
+}
+
+.hero-quote {
+    max-width: 500px;   /* batasi lebar */
+    margin: 10px auto;  /* center */
+    
+    font-size: 12px;
+    line-height: 1.6;   /* biar lega */
+    
+    font-style: italic;
+    color: #978c8c;
+}
+
+/* ================= QURAN SECTION ================= */
+.quran-section {
+    background: linear-gradient(
+        to bottom,
+        #1b0f0f,
+        rgba(80,0,0,0.75)
+    );
+    transition: all 0.6s ease;
+    padding: 80px 20px;
+    text-align: center;
+
+}
+
+/* BOX */
+.quran-box {
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 20px;
+
+    border-radius: 20px;
+
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    border: 1px solid rgba(212,175,55,0.2);
+}
+
+/* TERJEMAHAN */
+.quran-translate {
+    font-size: 14px;
+    color: var(--gold-dark);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.quran-box::before,
+.quran-box::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    margin: 15px auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ================= ORNAMENT ================= */
+.ornament-top,
+.ornament-bottom {
+    color: var(--gold);
+
+    font-size: clamp(10px, 2.5vw, 18px);
+    /* otomatis kecil di HP */
+
+    letter-spacing: clamp(2px, 1vw, 8px);
+    /* jarak ikut mengecil */
+
+    margin: 12px 0;
+
+    text-align: center;
+
+    white-space: nowrap; /* tetap 1 baris */
+    overflow: hidden; /* biar gak keluar */
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* ================= DIVIDER ================= */
+.gold-divider {
+    width: 60%;
+    max-width: 300px;
+    background: var(--gold);
+    margin: 15px auto;
+}
+
+/* ================= TEXT GLOBAL ================= */
+.gold-text {
+    color: var(--gold-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+
+}
+
+.section-text {
+    max-width: 300px;
+    font-size: 16px;
+    margin: auto;
+    line-height: 1.6;
+    color: #978c8c;
+    transition: all 0.6s ease;
+}
+
+.section-t {
+    max-width: 600px;
+    font-size: 16px;
+    margin: auto;
+    color: #978c8c;
+    transition: all 0.6s ease;
+}
+
+
+
+
+
+/* ================= HOME CARD ================= */
+.home-card {
+    background: transparent;
+    border-radius: 30px;
+    padding: 18px 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    border-left: 5px solid #800000;
+    transition: 0.3s;
+    max-width: 320px;
+    margin: auto;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+}
+
+.left-card {
+    border-left: 7px solid var(--gold);
+}
+
+.right-card {
+    border-right: 7px solid var(--gold);
+    border-left: none;
+    text-align: right;
+}
+
+.c0 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #978c8c;
+}
+
+.ct1 {
+    color: #978c8c;
+    font-size: 9px;
+}
+
+.ct2 {
+    color: #978c8c;
+    font-size: 9px;
+}
+
+.home-section1 {
+    background: linear-gradient(
+        to bottom,
+        rgba(80,0,0,0.75),
+        #1b0f0f
+    );
+    transition: all 0.6s ease;
+}
+
+.home-section2 {
+    background: linear-gradient(
+        to bottom,
+        #1b0f0f,
+        rgba(80,0,0,0.75)
+    );
+    transition: all 0.6s ease;
+}
+
+.home-section3 {
+    background: linear-gradient(
+        to bottom,
+        rgba(80,0,0,0.75),
+        #1b0f0f  
+    );
+    transition: all 0.6s ease;
+}
+
+
+/* ================= STORY ================= */
+.story-text {
+    font-style: italic;
+    color: #978c8c;
+    font-size: 16px;
+    padding: 0 30px; /* jarak kiri kanan */
+}
+
+/* ================= IMAGE ================= */
+.couple-photo {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+/* ================= BUTTON GOLD ================= */
+.btn-map {
+    display: inline-block;
+    padding: 8px 18px;
+
+    color: #d4af37;
+    border: 1px solid #d4af37;
+
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER HALUS */
+.btn-map:hover {
+    background: var(--gold);
+    color: rgba(20, 0, 0, 0.75);
+}
+
+/* ================= QR ================= */
+
+.btn-qr {
+    display: inline-block;
+    padding: 6px 16px;
+    margin-top: 5px;
+
+    color: var(--gold);
+    border: 1px solid var(--gold);
+
+    border-radius: 30px;
+    font-size: 13px;
+    text-decoration: none;
+    background: transparent;
+
+    transition: all 0.3s ease;
+}
+
+.btn-qr:hover {
+    background: #b8860b;
+    color: rgba(20, 0, 0, 0.75);
+}
+
+.qr-hidden {
+    display: none;
+}
+
+.qr-img {
+    max-width: 150px;
+    border: 5px solid var(--gold);
+    padding: 8px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* ================= CLOSING SECTION ================= */
+.closing-section {
+    padding: 80px 20px;
+    background: radial-gradient(circle, rgba(80,0,0,0.75), #1b0f0f, #1b0f0f);
+    transition: all 0.6s ease;
+}
+
+
+.closing-photo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.closing-img {
+    width: 260px;
+    max-width: 80%;
+}
+
+/* TEXT */
+.closing-text {
+    max-width: 300px;
+    margin: auto;
+    color: #978c8c;;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ================= EVENT ================= */
+.event-block {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.wedding-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(45deg, var(--gold-dark), var(--gold));
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.wedding-ornament {
+    color: var(--gold);
+    display: inline-block;
+    max-width: 100%;
+
+    font-size: clamp(10px, 2.5vw, 18px);
+    /* otomatis kecil di HP */
+
+    letter-spacing: clamp(2px, 1vw, 8px);
+    /* jarak ikut mengecil */
+
+    margin: 12px 0;
+
+    text-align: center;
+
+    white-space: nowrap; /* tetap 1 baris */
+    overflow: hidden; /* biar gak keluar */
+
+}
+
+.event-time {
+    font-weight: bold;
+    color: #978c8c;
+}
+
+.event-block p {
+    margin: 5px 0;
+    color: #978c8c;
+    font-size: 16px;
+}
+
+.ornament-leaf {
+    width: 360px;
+    height: 200px;
+    margin: 0 auto 12px;
+
+    background: url('img/gold-leaf.png') center/contain no-repeat;
+
+    /* GLOW */
+    filter: drop-shadow(0 0 6px rgba(212,175,55,0.5))
+            drop-shadow(0 0 12px rgba(212,175,55,0.3));
+
+    opacity: 0.95;
+}
+
+.leaf-bottom {
+    transform: scaleY(-1);
+}
+
+.closing-img {
+    animation: glowPulse 3s infinite alternate;
+}
+
+.c0 {
+    animation: glowText 3s ease-in-out infinite alternate;
+}
+
+.c0:hover {
+    text-shadow:
+        0 0 12px rgba(212,175,55,0.9),
+        0 0 25px rgba(212,175,55,0.6);
+}
+
+.hero-title {
+    animation: heroGlow 3s ease-in-out infinite alternate;
+}
+
+.closing-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    gap: 0; /* biar rapat & presisi */
+}
+
+.slider-item {
+    position: absolute;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+/* TENGAH */
+.slider-item.active {
+    position: relative;
+    transform: scale(1.2) rotateY(0deg);
+    opacity: 1;
+    z-index: 3;
+    filter:
+        drop-shadow(0 0 8px rgba(212,175,55,0.6))
+        drop-shadow(0 0 16px rgba(212,175,55,0.3));
+
+    transform: scale(1.05);
+}
+
+/* KIRI */
+.slider-item.left {
+    transform: translateX(-220px) scale(0.75) rotateY(45deg);
+    opacity: 0.6;
+    z-index: 2;
+    filter: 
+        brightness(0.8)
+        drop-shadow(0 0 4px rgba(212,175,55,0.2));
+}
+
+/* KANAN */
+.slider-item.right {
+    transform: translateX(220px) scale(0.75) rotateY(-45deg);
+    opacity: 0.6;
+    z-index: 2;
+    filter: 
+        brightness(0.8)
+        drop-shadow(0 0 4px rgba(212,175,55,0.2));
+}
+
+.slider-item img {
+    width: 200px;
+    border-radius: 15px;
+
+    transition: all 0.5s ease;
+
+    /* glow dasar (lembut) */
+    filter: 
+        drop-shadow(0 0 6px rgba(212,175,55,0.4))
+        drop-shadow(0 0 12px rgba(212,175,55,0.2));
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* ================= COUNTDOWN ================= */
+.countdown-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.countdown-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 16px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.countdown-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.countdown-box span {
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(212,175,55,0.3);
+
+    padding: 8px 12px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    color: #d4af37;
+    min-width: 60px;
+
+    box-shadow: 0 0 10px rgba(212,175,55,0.2);
+    transition: 0.3s;
+}
+
+.countdown-box span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(212,175,55,0.5);
+}
+
+.countdown-status {
+    padding: 8px 16px;
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(212,175,55,0.3);
+
+    color: #d4af37;
+    font-size: clamp(12px, 2.5vw, 16px);
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 6px rgba(212,175,55,0.6),
+        0 0 12px rgba(212,175,55,0.3);
+
+    /* glow halus (konsisten) */
+    box-shadow:
+        0 0 8px rgba(212,175,55,0.3),
+        0 0 18px rgba(212,175,55,0.15);
+
+    display: inline-block;
+}
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    z-index: 9999; /* penting biar gak ketutup */
+
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(212,175,55,0.3);
+    color: var(--gold-soft);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.slider-item.active img {
+    animation: glowSlider 3s infinite alternate;
+}
+
+@keyframes glowSlider {
+    from {
+        filter:
+            drop-shadow(0 0 6px rgba(212,175,55,0.5));
+    }
+    to {
+        filter:
+            drop-shadow(0 0 12px rgba(212,175,55,0.7));
+    }
+}
+
+@keyframes heroGlow {
+    from {
+        text-shadow:
+            0 0 8px rgba(212,175,55,0.6),
+            0 0 15px rgba(212,175,55,0.3);
+    }
+    to {
+        text-shadow:
+            0 0 15px rgba(212,175,55,1),
+            0 0 30px rgba(212,175,55,0.6),
+            0 0 50px rgba(212,175,55,0.3);
+    }
+}
+
+@keyframes glowText {
+    from {
+        text-shadow:
+            0 0 5px rgba(212,175,55,0.5),
+            0 0 10px rgba(212,175,55,0.3);
+    }
+    to {
+        text-shadow:
+            0 0 10px rgba(212,175,55,0.8),
+            0 0 20px rgba(212,175,55,0.5),
+            0 0 30px rgba(212,175,55,0.3);
+    }
+}
+
+@keyframes glowPulse {
+    from {
+        filter: 
+            drop-shadow(0 0 6px rgba(212,175,55,0.5))
+            drop-shadow(0 0 12px rgba(212,175,55,0.3));
+    }
+    to {
+        filter: 
+            drop-shadow(0 0 12px rgba(212,175,55,0.8))
+            drop-shadow(0 0 25px rgba(212,175,55,0.5))
+            drop-shadow(0 0 40px rgba(212,175,55,0.3));
+    }
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:576px){
+
+    .home-card:hover {
+    transform: translateY(5px);
+    }
+
+    .hero-subtitle {
+        font-size: 9px;
+    }
+
+    .hero-quote {
+        max-width: 80%;     /* fleksibel */
+        font-size: 9px;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
+    .section{
+        transform: scale(1.005);
+    }
+
+    .section-text {
+        font-size: 9px;
+    }
+
+    .wedding-card {
+        max-width: 270px;
+        padding: 25px 18px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        opacity: 0.8;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .desc {
+        font-size: 9px;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .couple-img {
+        width: 170px;
+    }
+
+    .couple-photo {
+        max-height: 180px;
+    }
+
+    .btn-wedding {
+        font-size: 10px;
+        padding: 6px 12px;
+        border-radius: 15px;
+    }
+    .btn-wedding:hover {
+        transform: scale(1.05);
+        color: white;
+    }
+
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-date {
+        font-size: 9px;
+    }
+
+    .home-card {
+        padding: 12px 10px;
+        max-width: 260px;
+    }
+
+    .story-text {
+        margin-top: 9px;
+        font-size: 10px;
+    }
+    .gold-divider {
+        width: 80%;
+    }
+    
+    .gold-text {
+        font-size: 12px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .c0 {
+        font-size: 20px;
+    }
+
+    .ct2 {
+        font-size: 8px;
+    }
+
+
+    .event-block p {
+        font-size: 9px;
+    }
+
+    .home-card {
+        margin-bottom: 20px;
+    }
+
+    .ornament-leaf {
+        width: 160px;
+        height: 65px;
+    }
+
+    .quran-section {
+        padding: 60px 15px;
+    }
+
+    .quran-box {
+        padding: 15px 10px;
+        margin: 0 10px;
+    }
+
+    .quran-translate {
+        font-size: 9px;
+    }
+
+    .closing-img {
+        width: 100px;
+    }
+
+    .closing-text {
+        font-size: 9px;
+    }
+
+    .btn-map {
+        font-size: 8px;
+        padding: 2px 10px;
+    }
+
+    .btn-qr {
+        font-size: 8px;
+        padding: 2px 10px;
+    }
+
+    .wedding-ornament {
+        letter-spacing: 3px;
+        font-size: 11px;
+    }
+
+    .slider-item img {
+        width: 140px;
+    }
+
+    .slider-item.left {
+        transform: translateX(-90px) scale(0.8) rotateY(35deg);
+    }
+
+    .slider-item.right {
+        transform: translateX(90px) scale(0.8) rotateY(-35deg);
+    }
+    .countdown-title {
+        font-size: 12px;
+    }
+
+    .countdown-box span {
+        font-size: 10px;
+        padding: 6px 8px;
+        min-width: 50px;
+    }
+    .countdown-status {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
